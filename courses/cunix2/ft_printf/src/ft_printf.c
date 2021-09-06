@@ -22,23 +22,23 @@ int ft_printf(const char *format, ...)
       format_param_t *format_param = format_resolver(format);
       switch (format_param->type)
       {
-        case 'd':
-        case 'i':
+        case 'd': ;
+        case 'i': ;
           int num = va_arg(args, int);
           *chunks = num_resolver(format_param, num);
           break;
-        case 'c':
+        case 'c': ;
           char ch = va_arg(args, int);
             *chunks = char_resolver(format_param, ch);
             break;
-        case 's':
+        case 's': ;
           const char *str = va_arg(args, const char *);
           *chunks = str_resolver(format_param, str);
           break;
-        case '%':
+        case '%': ;
           *chunks = escseq_resolver(format_param);
           break;
-        default:
+        default:  ;
           NULL;
           break;
       }
